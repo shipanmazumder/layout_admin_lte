@@ -1,4 +1,4 @@
-@extends('admin.layout.default')
+@extends('admin.layouts.default')
 @section('title_area')
 Module
 @endsection
@@ -13,7 +13,7 @@ Module
                 @isset($add)
                     <div class="col-sm-4">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Root Module</h3>
                             </div>
                             <div class="card-body">
@@ -24,7 +24,7 @@ Module
                                         <input required name="name" type="text" class="form-control" id="name" placeholder="Enter Top Menu Name">
                                     </div>
                                     <div class="form-group">
-                                    <input type="submit" class=" btn btn-primary pull-right" value="Save" name="submit" />
+                                    <input type="submit" class=" btn btn-success pull-right" value="Save" name="submit" />
                                     </div>
                                 </form>
                             </div>
@@ -34,7 +34,7 @@ Module
                 @isset($edit_parent)
                 <div class="col-sm-4">
                     <div class="card mt-4">
-                        <div class="card-header bg-primary">
+                        <div class="card-header bg-success">
                             <h3 class="card-title text-white">Root Module</h3>
                         </div>
                         <div class="card-body">
@@ -45,7 +45,7 @@ Module
                                     <input required name="name" value="{{ $single->name }}" type="text" class="form-control" id="name" placeholder="Enter Top Menu Name">
                                 </div>
                                 <div class="form-group">
-                                <input type="submit" class=" btn btn-primary pull-right" value="Save" name="submit" />
+                                <input type="submit" class=" btn btn-success pull-right" value="Save" name="submit" />
                                 </div>
                             </form>
                         </div>
@@ -55,7 +55,7 @@ Module
                 @isset($add)
                 <div class="col-sm-8">
                     <div class="card mt-4">
-                        <div class="card-header bg-primary">
+                        <div class="card-header bg-success">
                             <h3 class="card-title text-white">Sub Module</h3>
                         </div>
                         <div class="card-body">
@@ -81,7 +81,7 @@ Module
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group m-t-22">
-                                        <input type="submit" class=" btn btn-primary pull-right" value="Save" name="submit" />
+                                        <input type="submit" class=" btn btn-success pull-right" value="Save" name="submit" />
                                         </div>
                                     </div>
                                 </form>
@@ -92,7 +92,7 @@ Module
                 @isset($edit_submenu)
                     <div class="col-sm-8">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Sub Module</h3>
                             </div>
                             <div class="card-body">
@@ -120,7 +120,7 @@ Module
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group m-t-22 m-l-15">
-                                        <input type="submit" class=" btn btn-primary pull-right"  value="Save"/>
+                                        <input type="submit" class=" btn btn-success pull-right"  value="Save"/>
                                         </div>
                                     </div>
                                 </form>
@@ -135,7 +135,7 @@ Module
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Module Control</h3>
                             </div>
                             <div class="card-body">
@@ -167,6 +167,7 @@ Module
                                                             </th>
                                                             <td>
                                                             <label class="switch">
+                                                                {{-- <input type="checkbox"  class="inputswitch" {{$value['is_active']=="1"?"checked":""}} name="onof" value="{{$value['group_id']}}"  data-bootstrap-switch data-off-color="danger" data-on-color="success"> --}}
                                                                 <input class="inputswitch" type="checkbox" {{$value['is_active']=="1"?"checked":""}}  value="{{$value['group_id']}}"  name="onof" data-plugin="switchery" data-color="#3db9dc" />
                                                             </label>
                                                             </td>
@@ -276,7 +277,7 @@ Module
                                         </table>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn btn-primary" value="Save" name="submit" />
+                                        <input type="submit" class="btn btn btn-success" value="Save" name="submit" />
                                     </div>
                                 </form>
                             </div>
@@ -290,33 +291,11 @@ Module
 
 </div>
 @push('scripts')
-<script src="{{asset("admin")}}/vendors/switchery/switchery.min.js"></script>
-<script>
-     !(function (o) {
-    "use strict";
-    var t = function () {};
-        (t.prototype.initSwitchery = function () {
-            o('[data-plugin="switchery"]').each(function (t, e) {
-                new Switchery(o(this)[0], o(this).data());
-            });
-        }),
-        (t.prototype.init = function () {
-            this.initSwitchery();
-        }),
-        (o.Components = new t()),
-        (o.Components.Constructor = t);
-    })(window.jQuery),
-        (function (t) {
-            "use strict";
-            window.jQuery.Components.init();
-        })();
-
-</script>
     <script>
         $(document).ready(function(){
             $('#parent_module').on('submit',function(e){
                 e.preventDefault();
-                var url="{{url("module/add_parent")}}";
+                var url="{{url('module/add_parent')}}";
                 $.ajax({
                     url:url,
                     type:"post",
@@ -340,7 +319,7 @@ Module
             $(".inputswitch").on("click",function(){
                 var value=0;
                 var id='';
-                var url="{{url("module/control")}}";
+                var url="{{url('module/control')}}";
                 if($(this).is(":checked"))
                 {
                     value=1;
@@ -350,6 +329,7 @@ Module
                     value=0;
                     id=$(this).val();
                 }
+                console.log(value);
                 $.ajax({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

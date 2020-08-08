@@ -54,8 +54,6 @@ class ModuleController extends Controller
         $parent_id = $request->parent_id;
         $result = DB::table("permission_categories")
             ->where("permission_group_id", '=', $parent_id)
-            ->where("submenu", "=", 1)
-            ->where("subparent", "=", 0)
             ->orderBy("name", "asc")
             ->get();
         return response()->json($result);
@@ -156,7 +154,8 @@ class ModuleController extends Controller
         $value = $request->input("value");
         DB::table("permission_groups")->where('id', "=", $module_id)
             ->update(['is_active' => $value]);
-        echo json_encode($value);
+        // echo json_encode($value);
+        return response()->json(['message'=>"success","data"=>$value]);
     }
 
     public function moduleUpdate(Request $request)

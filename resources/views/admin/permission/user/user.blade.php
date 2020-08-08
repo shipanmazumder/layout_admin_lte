@@ -1,4 +1,4 @@
-@extends('admin.layout.default')
+@extends('admin.layouts.default')
 @section('title_area')
 Manage User
 @endsection
@@ -13,7 +13,7 @@ Manage User
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Manage User</h3>
                             </div>
                             <div class="card-body">
@@ -59,7 +59,7 @@ Manage User
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group pull-left mt-4">
-                                                <button name="add_user" type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Add</button>
+                                                <button name="add_user" type="submit" class="btn btn-success"><i class="md md-add m-r-5"></i>Add</button>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@ Manage User
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Manage User</h3>
                             </div>
                             <div class="card-body">
@@ -122,7 +122,7 @@ Manage User
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group pull-left mt-4 ">
-                                                <button name="edit_user" type="submit" class="btn btn-primary"><i class="md md-add m-r-5"></i>Update</button>
+                                                <button name="edit_user" type="submit" class="btn btn-success"><i class="md md-add m-r-5"></i>Update</button>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@ Manage User
         <div class="row">
             <div class="col-sm-12">
                 <div class="card mt-4">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-success">
                         <h3 class="card-title text-white">View Users</h3>
                     </div>
                     <div class="card-body">
@@ -168,8 +168,8 @@ Manage User
     </div> <!-- container -->
 </div>
 @push('scripts')
-<script src="{{asset("admin/vendors")}}/datatables/jquery.dataTables.min.js"></script>
-<script src="{{asset("admin/vendors")}}/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset("admin/plugins")}}/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset("admin/plugins")}}/datatables/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function(){
         $("#user_add").on("submit",function(e){

@@ -6,6 +6,7 @@
   <title>@yield('title_area')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="{{ asset("web")}}/img/icon/favicon.ico">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset("admin")}}/plugins/fontawesome-free/css/all.min.css">
@@ -19,6 +20,11 @@
   <link rel="stylesheet" href="{{ asset("admin")}}/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset("admin")}}/dist/css/adminlte.min.css">
+
+  <link href="{{asset("admin")}}/plugins/notifications/notification.css" rel="stylesheet" />
+  <link href="{{asset("admin")}}/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+
+
    <!-- helper css -->
   <link rel="stylesheet" href="{{asset("admin")}}/dist/css/helper.css">
   <!--custom css -->
@@ -73,8 +79,23 @@
 <script src="{{asset("admin")}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset("admin")}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- plgin js -->
+<script src="{{asset("admin/plugins")}}/notifications/notify.min.js"></script>
+<script src="{{asset("admin/plugins")}}/notifications/notify-metro.js"></script>
+<script src="{{asset("admin/plugins")}}/notifications/notifications.js"></script>
+<script src="{{asset("admin")}}/dist/js/bootstrap-select.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="{{asset("admin")}}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset("admin")}}/dist/js/adminlte.js"></script>
+@stack('scripts')
+<script>
+    $(document).ready(function(){
+        $("input[data-bootstrap-switch]").each(function(){
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            });
+    });
+</script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{-- <script src="{{asset("admin")}}/dist/js/pages/dashboard.js"></script> --}}
 <!-- AdminLTE for demo purposes -->

@@ -79,7 +79,7 @@ Password Change
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group m-t-30">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-success">Update</button>
                                     </div>
                                 </div>
                             </div>

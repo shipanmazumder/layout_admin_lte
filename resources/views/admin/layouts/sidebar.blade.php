@@ -1,6 +1,6 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route("admin.dashboard")}}" class="brand-link">
+    <a href="{{route("dashboard")}}" class="brand-link">
       <img src="{{asset("admin")}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">{{config("app.name")}}</span>
@@ -24,55 +24,46 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{route("admin.dashboard")}}" class="nav-link {{set_Submenu("dashboard")}}">
+            <a href="{{route("dashboard")}}" class="nav-link {{set_Submenu("dashboard")}}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard
                 </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route("admin.area")}}" class="nav-link {{set_Submenu("area")}}">
-                <i class="nav-icon fas fa-map"></i>
+          @if (hasActive("administrator") && hasPermission("administrator",VIEW))
+            <li class="nav-item has-treeview {{set_Topmenu('administrator')}}">
+                <a href="#" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
-                    Area
+                    Administrator
+                    <i class="fas fa-angle-left right"></i>
                 </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview {{set_Topmenu("event")}}">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Event
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route("admin.event")}}" class="nav-link {{set_Submenu("manage_event")}}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Event</p>
                 </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{route("admin.user")}}" class="nav-link {{set_Submenu("user")}}">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                    Users Registration
-                </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route("admin.sortlist")}}" class="nav-link {{set_Submenu("sort_list")}}">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                    Sort List Users
-                </p>
-            </a>
-          </li>
-          </li>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        @if (is_super_admin())
+                        <a href="{{route('module')}}" class="nav-link {{set_Submenu('module')}}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Module</p>
+                        </a>
+                        @endif
+                        @if (hasPermission("role_permission",VIEW))
+                            <a href="{{route('role')}}" class="nav-link {{set_Submenu('role-permission')}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Role Permission</p>
+                            </a>
+                        @endif
+                        @if (hasPermission("manage_user",VIEW))
+                            <a href="{{route('users')}}" class="nav-link {{set_Submenu('manage-user')}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Manage Users</p>
+                            </a>
+                        @endif
+                    </li>
+                </ul>
+            </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

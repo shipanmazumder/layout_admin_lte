@@ -98,7 +98,7 @@ Manage Event
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group m-t-30">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ Manage Event
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group m-t-30">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
                             </div>

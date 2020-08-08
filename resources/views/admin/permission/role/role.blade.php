@@ -1,4 +1,4 @@
-@extends('admin.layout.default')
+@extends('admin.layouts.default')
 @section('title_area')
 Role Permission
 @endsection
@@ -13,7 +13,7 @@ Role Permission
                 @isset($add)
                         <div class="col-sm-6">
                             <div class="card mt-4">
-                                <div class="card-header bg-primary">
+                                <div class="card-header bg-success">
                                     <h3 class="card-title text-white">Role Add</h3>
                                 </div>
                                 <div class="card-body">
@@ -27,7 +27,7 @@ Role Permission
                                            @enderror
                                        </div>
                                        <div class="form-group">
-                                       <input type="submit" class="btn-sm btn btn-primary pull-right" value="Save" name="submit" />
+                                       <input type="submit" class="btn-sm btn btn-success pull-right" value="Save" name="submit" />
                                        </div>
                                    {!! Form::close() !!}
                                 </div>
@@ -39,7 +39,7 @@ Role Permission
                 @isset($edit)
                     <div class="col-sm-6">
                         <div class="card mt-4">
-                            <div class="card-header bg-primary">
+                            <div class="card-header bg-success">
                                 <h3 class="card-title text-white">Role Edit</h3>
                             </div>
                             <div class="card-body">
@@ -51,7 +51,7 @@ Role Permission
                                         <input required name="name" value="{{$single->name}}" type="text" class="form-control" id="name" placeholder="Enter role name">
                                     </div>
                                     <div class="form-group">
-                                    <input type="submit" class="btn-sm btn btn-primary pull-right" value="Update" name="submit" />
+                                    <input type="submit" class="btn-sm btn btn-success pull-right" value="Update" name="submit" />
                                     </div>
                                 {!! Form::close() !!}
                             </div>
@@ -61,7 +61,7 @@ Role Permission
             @endif
             <div class="col-sm-6">
                 <div class="card mt-4">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-success">
                         <h3 class="card-title text-white">Role View</h3>
                     </div>
                     <div class="card-body">

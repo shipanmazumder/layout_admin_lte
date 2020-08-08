@@ -1,4 +1,4 @@
-@extends('admin.layout.default')
+@extends('admin.layouts.default')
 @section('title_area')
 Assign Permission
 @endsection
@@ -11,7 +11,7 @@ Assign Permission
         <div class="row">
             <div class="col-sm-12">
                 <div class="card mt-4">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-success">
                         <h3 class="card-title text-white">Assign Permission ({{$role_name}})</h3>
                     </div>
                     <div class="card-body">
@@ -153,7 +153,7 @@ Assign Permission
                                 </table>
                             </div>
                             <div class="form-group">
-                            <input type="submit" class=" btn btn-primary pull-right" value="Save" name="submit" />
+                            <input type="submit" class=" btn btn-success pull-right" value="Save" name="submit" />
                             </div>
                         {!! Form::close() !!}
                     </div>
